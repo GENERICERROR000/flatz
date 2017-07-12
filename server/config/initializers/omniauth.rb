@@ -1,5 +1,3 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :slack, 'API_KEY', 'API_SECRET', scope: 'identity.basic'
+  provider :slack, '2727337933.211352935332', 'f4e1856f6a0d49a1c34c3c0eca6249ad', scope: 'identity.basic'
 end
-
-# TODO: Replace 'API_KEY' and 'API_SECRET' with the appropriate values
