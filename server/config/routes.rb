@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'home#login'
 
-  get 'home/profile'
-
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'auth/:provider/callback', to: 'sessions#create'
+  delete 'sign_out', to: 'sessions#destory', as: 'sign_out'
 
   namespace :api do
     namespace :v1 do

@@ -15,7 +15,7 @@ class Login extends React.Component {
             </div>
           </h2><br/>
 
-          <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=2727337933.211352935332"><img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcset="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>
+        <a href="https://slack.com/oauth/authorize?scope=identity.basic&client_id=2727337933.211352935332"><img alt="Sign in with Slack" height="40" width="172" src="https://platform.slack-edge.com/img/sign_in_with_slack.png" srcSet="https://platform.slack-edge.com/img/sign_in_with_slack.png 1x, https://platform.slack-edge.com/img/sign_in_with_slack@2x.png 2x" /></a>
         </div>
       </div>
     )

@@ -1,7 +1,12 @@
 class HomeController < ApplicationController
-  def login
+  before_action :set_auth
+  def index
   end
 
   def profile
+  end
+
+  def set_auth
+    @auth = session[:onmiauth] if session[:omniauth]
   end
 end

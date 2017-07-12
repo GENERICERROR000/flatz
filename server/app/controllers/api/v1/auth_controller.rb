@@ -1,30 +1,32 @@
 class Api::V1::AuthController < ApplicationController
-end
-
-# class Api::V1::AuthController < ApplicationController
-#   before_action :authorize_user!, only: [:show]
-#
 #   def show
-#     render json: {
-#       id: current_user.id,
-#       username: current_user.username
-#     }
+#     render json: {id: current_user.id, email: current_user.email}
 #   end
 #
 #   def create
-#     # see if there is a user with this username
-#     user = User.find_by(username: params[:username])
-#     # if there is, make sure that they have the correct password
-#     if user.present? && user.authenticate(params[:password])
-#       # if they do, render back a json response of the user info
-#       # issue token
-#       created_jwt = issue_token({id: user.id})
-#       render json: {username: user.username,jwt: created_jwt}
-#     else
-#       # otherwise, render back some error response
+#     user = User.where(email: params[:email]).first
+#     if user && user.valid_password?(params[:password])
 #       render json: {
-#         error: 'Username or password incorrect'
-#       }, status: 404
+#         email: user.email,
+#         jwt: JWT.encode({user_id: user.id}, ENV['JWT_SECRET'], ENV['JWT_ALGORITHM'])
+#       },
+#       status: :created
+#     else
+#       head(:unauthorized)
 #     end
 #   end
+#   def destroy
+#   end
 # end
+# def create
+#   user = User.find_by(username: params[:username])
+#   if user.present? && user.authenticate(params[:password])
+#     render json: {
+#       id: user.id,
+#       username: user.username,
+#       jwt: JWT.encode({user_id: user.id}, ENV['JWT_SECRET'], ENV['JWT_ALGORITHM'])
+#     }
+#   else
+#     render json: {error: 'Worng Username/Password'}, status: 404
+#   end
+end
