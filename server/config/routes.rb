@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/login', to => 'sessions#new', :as => :login
   get 'auth/:provider/callback', to: 'sessions#create'
   delete 'sign_out', to: 'sessions#destory', as: 'sign_out'
 
