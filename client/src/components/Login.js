@@ -1,4 +1,5 @@
 import React from 'react'
+import logo from '../FI-Logo.png'
 
 class Login extends React.Component {
   constructor() {
@@ -8,7 +9,7 @@ class Login extends React.Component {
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column">
-          <img className="icon" src="https://d1qb2nb5cznatu.cloudfront.net/startups/i/255890-6001436d845bc57af0be3ff007f4bcaa-medium_jpg.jpg?buster=1427129016" /><br/>
+          <img className="icon" src={logo} /><br/>
           <h2 className="ui image header">
             <div className="content">
               Welcome to Flatz
