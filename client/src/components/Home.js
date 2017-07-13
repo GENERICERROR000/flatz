@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Redirect } from 'react-router'
+import { Redirect } from 'react-router'
 
 class Home extends React.Component {
 
@@ -9,13 +9,23 @@ class Home extends React.Component {
 
     fetch(URL)
       .then(resp => resp.json())
-      .then(data => this.props.setToken(data.access_token))
+      .then(data => localStorage.setItem("accessToken", data.access_token))
+  }
+
+  waitOrRedirect() {
+    if (localStorage.accessToken) {
+      return (
+        <Redirect to="/show"/>
+      )
+    } else {
+      return (
+        <h1>Please Hold While The Internet Does It's Thing...</h1>
+      )
+    }
   }
 
   render() {
-    return (
-      <Redirect to="/show"/>
-    )
+    return this.waitOrRedirect()
   }
 }
 

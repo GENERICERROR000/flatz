@@ -1,12 +1,12 @@
 import React from 'react'
-import logo from '../FI-Logo.png'
+import logo from '../FIS-Inverted.svg'
 
 class Login extends React.Component {
   render() {
     return (
       <div className="ui middle aligned center aligned grid">
         <div className="column">
-          <img className="icon" src={logo} /><br/>
+          <img className="icon" src={logo} alt="logo"/><br/>
           <h2 className="ui image header">
             <div className="content">
               Welcome to Flatz
