@@ -1,8 +1,12 @@
 import React from 'react'
 
 const Show = () => {
+  console.log(this.props.userInfo)
   return (
-    <h1>Working</h1>
+    <div>
+      words
+    </div>
   )
 }
+
 export default Show
