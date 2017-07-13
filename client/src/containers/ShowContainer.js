@@ -13,7 +13,7 @@ class ShowContainer extends React.Component {
       .then(data => this.setState({
         userInfo: data
       }))
-      // .then(() => this.sendUserToDB())
+      .then(cat => this.sendUserToDB())
   }
 
   sendUserToDB() {
@@ -23,9 +23,11 @@ class ShowContainer extends React.Component {
       uid: this.state.userInfo.user.id
     }
 
-    fetch('', {
+    fetch('http://localhost:3000/api/v1/auth', {
       method: 'POST',
-      headers: '',
+      headers: {
+        "content-type": "application/json"
+      },
       body: JSON.stringify(loginParams)
     })
     .then(resp => resp.json())
@@ -41,6 +43,7 @@ class ShowContainer extends React.Component {
   }
 
   render() {
+    console.log(this.state.userInfo)
     return this.waitOrRender()
   }
 }
