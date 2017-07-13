@@ -7,17 +7,15 @@ class ShowContainer extends React.Component {
   }
 
   componentWillMount() {
-    const URL = `https://slack.com/api/users.profile.get?token=${localStorage.accessToken}&`
-    console.log(localStorage.accessToken, URL)
+    const URL = `https://slack.com/api/users.identity?token=${localStorage.accessToken}`
     fetch(URL)
       .then(resp => resp.json())
-      .then(a => console.log(a))
-      // .then(data => this.setState({
-      //   userInfo: data.profile
-      // }))
+      .then(data => this.setState({
+        userInfo: data
+      }))
   }
 
-  waitOrRedirect() {
+  waitOrRender() {
     if (this.state.userInfo) {
       return <Show userInfo={this.state.userInfo}/>
     } else {
@@ -26,7 +24,7 @@ class ShowContainer extends React.Component {
   }
 
   render() {
-    return this.waitOrRedirect()
+    return this.waitOrRender()
   }
 }
 
