@@ -13,6 +13,23 @@ class ShowContainer extends React.Component {
       .then(data => this.setState({
         userInfo: data
       }))
+      // .then(() => this.sendUserToDB())
+  }
+
+  sendUserToDB() {
+    const loginParams = {
+      name: this.state.userInfo.user.name,
+      email: this.state.userInfo.user.email,
+      uid: this.state.userInfo.user.id
+    }
+
+    fetch('', {
+      method: 'POST',
+      headers: '',
+      body: JSON.stringify(loginParams)
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
   }
 
   waitOrRender() {
