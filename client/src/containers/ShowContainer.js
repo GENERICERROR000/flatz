@@ -15,7 +15,7 @@ class ShowContainer extends React.Component {
       }))
   }
 
-  waitOrRedirect() {
+  waitOrRender() {
     if (this.state.userInfo) {
       return <Show userInfo={this.state.userInfo}/>
     } else {
@@ -24,7 +24,7 @@ class ShowContainer extends React.Component {
   }
 
   render() {
-    return this.waitOrRedirect()
+    return this.waitOrRender()
   }
 }
 
