@@ -1,6 +1,11 @@
 class Api::V1::AuthController < ApplicationController
+
   def show
-    render json: {id: current_user.id, email: current_user.email}
+    if decoded_token.empty?
+      render json: {valid: false}
+    else
+      render json: {valid: true}
+    end
   end
 
   def create

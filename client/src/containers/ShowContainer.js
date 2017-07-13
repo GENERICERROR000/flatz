@@ -1,5 +1,6 @@
 import React from 'react'
 import Show from '../components/Show'
+import Authenticator3000 from '../containers/Authenticator3000'
 
 class ShowContainer extends React.Component {
   state = {
@@ -13,7 +14,7 @@ class ShowContainer extends React.Component {
       .then(data => this.setState({
         userInfo: data
       }))
-      .then(cat => this.sendUserToDB())
+      .then(a => this.sendUserToDB())
   }
 
   sendUserToDB() {
@@ -31,7 +32,7 @@ class ShowContainer extends React.Component {
       body: JSON.stringify(loginParams)
     })
     .then(resp => resp.json())
-    .then(data => console.log(data))
+    .then(data => localStorage.setItem("jwt", data.jwt))
   }
 
   waitOrRender() {
@@ -43,9 +44,8 @@ class ShowContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.userInfo)
     return this.waitOrRender()
   }
 }
 
-export default ShowContainer
+export default Authenticator3000(ShowContainer)

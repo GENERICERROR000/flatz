@@ -1,7 +1,7 @@
 import React from 'react'
-import { Redirect } from 'react-router'
+import { Redirect } from 'react-router-dom'
 
-class Home extends React.Component {
+class TokenGen extends React.Component {
 
   componentWillMount() {
     const code = window.location.href.split('code=')[1].split('&')[0]
@@ -13,15 +13,7 @@ class Home extends React.Component {
   }
 
   waitOrRedirect() {
-    if (localStorage.accessToken) {
-      return (
-        <Redirect to="/show"/>
-      )
-    } else {
-      return (
-        <h1>Please Hold While The Internet Does It's Thing...</h1>
-      )
-    }
+    return <Redirect to="/show"/>
   }
 
   render() {
@@ -29,4 +21,4 @@ class Home extends React.Component {
   }
 }
 
-export default Home
+export default TokenGen

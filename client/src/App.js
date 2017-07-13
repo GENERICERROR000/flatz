@@ -3,20 +3,21 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Login from './components/Login'
 import NavBar from './components/NavBar'
-import Home from './components/Home'
+import TokenGen from './components/TokenGen'
 import ShowContainer from './containers/ShowContainer'
+import createBrowserHistory from 'history/createBrowserHistory'
+
+const history = createBrowserHistory()
 
 class App extends Component {
-  state = {}
-
   render() {
     return (
-      <Router>
+      <Router history={history}>
         <div>
           <NavBar/>
           <Switch >
             <Route exact path="/" component={Login}/>
-            <Route exact path="/home" component={Home}/>
+            <Route exact path="/tokengen" component={TokenGen}/>
             <Route exact path="/show" component={ShowContainer}/>
           </Switch>
         </div>
