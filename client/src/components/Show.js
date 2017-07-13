@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Show = () => {
+const Show = (props) => {
   return (
     <div>
-      words
+      {props.userInfo.user.name}
     </div>
   )
 }

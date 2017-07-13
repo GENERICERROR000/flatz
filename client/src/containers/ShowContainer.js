@@ -7,21 +7,19 @@ class ShowContainer extends React.Component {
   }
 
   componentWillMount() {
-    const URL = `https://slack.com/api/users.profile.get?token=${localStorage.accessToken}&`
-    console.log(localStorage.accessToken, URL)
+    const URL = `https://slack.com/api/users.identity?token=${localStorage.accessToken}`
     fetch(URL)
       .then(resp => resp.json())
-      .then(a => console.log(a))
-      // .then(data => this.setState({
-      //   userInfo: data.profile
-      // }))
+      .then(data => this.setState({
+        userInfo: data
+      }))
   }
 
   waitOrRedirect() {
     if (this.state.userInfo) {
       return <Show userInfo={this.state.userInfo}/>
     } else {
-      return <h1>Loading...</h1>
+      return <h1>Loading</h1>
     }
   }
 
