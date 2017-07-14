@@ -1,5 +1,6 @@
 import React from 'react'
 import { Redirect } from 'react-router-dom'
+import Delay from 'react-delay'
 
 class TokenGen extends React.Component {
   state = {
@@ -52,7 +53,11 @@ class TokenGen extends React.Component {
   }
 
   render() {
-    return this.waitOrRender()
+    return(
+      <Delay wait={1000}>
+        {this.waitOrRender()}
+      </Delay>
+    )
   }
 }
 
