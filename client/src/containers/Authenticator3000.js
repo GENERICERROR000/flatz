@@ -7,15 +7,13 @@ const Authenticator3000 = BaseComponent => {
       isLoggedIn: false
     }
 
-    componentDidMount(){
+    componentWillMount(){
       if (localStorage.getItem('jwt')) {
         this.currentUser()
           .then(res => {
             if (res.valid) {
-              console.log("valid", res.valid);
               this.setState({isLoggedIn: true})
             } else {
-              console.log("not valid");
               this.props.history.push('/')
             }
           })
@@ -39,10 +37,8 @@ const Authenticator3000 = BaseComponent => {
 
     shouldIStayOrShouldIGo(){
       if(localStorage.getItem('jwt')){
-        console.log("logged in");
           return <BaseComponent />
         } else {
-          console.log("no token");
           return <Redirect to="/"/>
         }
     }

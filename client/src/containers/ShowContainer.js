@@ -1,6 +1,6 @@
 import React from 'react'
 import Show from '../components/Show'
-import Authenticator3000 from '../containers/Authenticator3000'
+
 
 class ShowContainer extends React.Component {
   state = {
@@ -48,4 +48,4 @@ class ShowContainer extends React.Component {
   }
 }
 
-export default Authenticator3000(ShowContainer)
+export default ShowContainer

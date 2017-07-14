@@ -1,21 +1,28 @@
 import React from 'react'
 import '../Show.css'
+import Authenticator3000 from '../containers/Authenticator3000'
 
-const Show = (props) => {
-  return (
-    <div className="profile ui card">
-      <div className="image">
-        <img src={props.userInfo.user.image_192} alt="User Img"/>
-      </div>
-      <div className="content">
-        <p className="header">{props.userInfo.user.name}</p>
-        <div className="description">
-          <p>{props.userInfo.user.email}</p>
-          <p>Bootcamp: {props.userInfo.team.name}<img src={props.userInfo.team.image_34} alt="Bootcamp Logo" /></p>
+class Show extends React.Component {
+  state = {
+    userInfo: ''
+  }
+
+  render(){
+    return (
+      <div className="profile ui card">
+        <div className="image">
+          <img src={window.history.state.state.userInfo.user.image_192} alt="User Img"/>
+        </div>
+        <div className="content">
+          <p className="header">{window.history.state.state.userInfo.user.name}</p>
+          <div className="description">
+            <p>{window.history.state.state.userInfo.user.email}</p>
+            <p>Bootcamp: {window.history.state.state.userInfo.team.name}<img src={window.history.state.state.userInfo.team.image_34} alt="Bootcamp Logo" /></p>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
-export default Show
+export default Authenticator3000(Show)
