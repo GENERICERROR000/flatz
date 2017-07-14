@@ -10,11 +10,18 @@ import createBrowserHistory from 'history/createBrowserHistory'
 const history = createBrowserHistory()
 
 class App extends Component {
+
+  logout = () => {
+    localStorage.removeItem('accessToken')
+    localStorage.removeItem('jwt')
+    this.forceUpdate()
+  }
+
   render() {
     return (
       <Router history={history}>
         <div>
-          <NavBar/>
+          <NavBar logout={this.logout}/>
           <Switch >
             <Route exact path="/" component={Login}/>
             <Route exact path="/tokengen" component={TokenGen}/>

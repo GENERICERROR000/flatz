@@ -13,9 +13,7 @@ const Authenticator3000 = BaseComponent => {
           .then(res => {
             if (res.valid) {
               this.setState({isLoggedIn: true})
-            } else {
-              this.props.history.push('/')
-            }
+            } 
           })
         }
     }

@@ -3,10 +3,7 @@ import '../Show.css'
 import Authenticator3000 from '../containers/Authenticator3000'
 
 class Show extends React.Component {
-  state = {
-    userInfo: ''
-  }
-
+  
   render(){
     return (
       <div className="profile ui card">
