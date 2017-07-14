@@ -3,7 +3,8 @@ import '../Show.css'
 import Authenticator3000 from '../containers/Authenticator3000'
 
 class Show extends React.Component {
-  
+  // NOTE: Currently, the info comes from a redirect from TokenGen. This means once logged in, if you go directly to /show, it doesn't work because the info is never set. Saving to a higher state (or Redux?) and then passing to Show would fix this issue.
+
   render(){
     return (
       <div className="profile ui card">

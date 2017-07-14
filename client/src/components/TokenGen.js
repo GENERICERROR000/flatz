@@ -48,7 +48,7 @@ class TokenGen extends React.Component {
         }}/>
       )
     } else {
-      return <h1>Loading...</h1>
+      return <h1>Please Hold While The Interent Does It's Thing...</h1>
     }
   }
 
