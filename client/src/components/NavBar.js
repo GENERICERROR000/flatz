@@ -10,7 +10,7 @@ class Navbar extends React.Component {
         <a className="item">
           Profile
         </a>
-        <a className="item">
+        <a href="http://localhost:4000" className="item">
           Flatz Board
         </a>
         <div className="right menu">
